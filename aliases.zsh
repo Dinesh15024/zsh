@@ -44,7 +44,7 @@ lf() { # zsh follow lf navigation
 # Editor
 # =========================================================
 
-alias vim='nvim'
+alias nv='nvim'
 
 # =========================================================
 # Git
@@ -59,3 +59,18 @@ alias dotfiles='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 # =========================================================
 
 alias stream='mpv av://v4l2:/dev/video4 --fullscreen --demuxer-lavf-o=input_format=mjpeg,framerate=30 --profile=low-latency --untimed'
+
+
+alias cs='clear'
+alias ch='cd ~'
+
+alias mk='minikube'
+alias kl='kubectl'
+alias kgpn='kubectl get po -n'
+alias kgp='kubectl get po'
+alias kgn='kubectl get ns'
+alias kgs='kubectl get svc'
+alias kgd='kubectl get deploy'
+
+
+

@@ -9,7 +9,17 @@
 #   Navigation:   zoxide, fzf, fd
 #   CLI tools:    eza, bat, nvim, ripgrep
 #   Node:         nvm
-
+#
+export FZF_DEFAULT_OPTS='
+  --height=60%
+  --layout=reverse
+  --border=rounded
+  --prompt="  "
+  --pointer="  "
+  --preview-window=right:65%:wrap:border-left
+  --bind="wheel-up:up"
+  --bind="wheel-down:down"
+  '
 # =========================================================
 # History
 # =========================================================

@@ -2,13 +2,14 @@
 
 add_newline = false
 
-format = "$directory$os$git_branch$git_status$nodejs$rust$golang$php $character"
+format = "$directory$os$git_branch$git_status${custom.docker}${custom.kubernetes}$character"
 
 [os]
 disabled = false
-format = "[$symbol](#blue) "
+format = "[$symbol](bold #1793D1) "
 
 [os.symbols]
+Linux   = '󰣇'
 Ubuntu  = "󰕈"
 Artix   = "󰣇"
 Arch    = "󰣇"
@@ -17,8 +18,8 @@ Macos   = ""
 
 [directory]
 format            = "[$path](cyan) "
-truncation_length = 4
-truncate_to_repo  = true
+truncation_length = 0
+truncate_to_repo  = false
 
 [git_branch]
 symbol = ""
@@ -35,10 +36,6 @@ untracked  = "[?$count ](bold white)"
 deleted    = "[✘$count ](bold red)"
 conflicted = "[⚡$count ](bold red)"
 
-[nodejs]
-symbol = ""
-format = "[$symbol $version](green) "
-
 [rust]
 symbol = ""
 format = "[$symbol $version](red) "
@@ -47,11 +44,20 @@ format = "[$symbol $version](red) "
 symbol = ""
 format = "[$symbol $version](cyan) "
 
-[php]
-symbol = ""
-format = "[$symbol $version](purple) "
-
 [character]
 success_symbol = "[❯](green)"
 error_symbol   = "[❯](red)"
 vimcmd_symbol  = "[❮](blue)"
+
+[custom.docker]
+command = "docker context show"
+when = "command -v docker"
+symbol = ''
+format = "[$symbol](bold #5CA9FF) "
+
+[custom.kubernetes]
+command = "kubectl config current-context"
+when = "kubectl cluster-info >/dev/null 2>&1"
+symbol = "󱃾 "
+format = "[$symbol](bold #4169E1)"
+shell = ["bash", "--noprofile", "--norc"]
