@@ -52,12 +52,14 @@ vimcmd_symbol  = "[❮](blue)"
 [custom.docker]
 command = "docker context show"
 when = "command -v docker"
-symbol = ''
-format = "[$symbol](bold #5CA9FF) "
+symbol = ' '
+format = "[$symbol](bold #5CA9FF)"
 
 [custom.kubernetes]
 command = "kubectl config current-context"
-when = "kubectl cluster-info >/dev/null 2>&1"
-symbol = "󱃾 "
-format = "[$symbol](bold #4169E1)"
+when = "timeout 1 kubectl get nodes >/dev/null 2>&1"
+symbol = "󱃾"
+format = "[$symbol](bold #4169E1) "
+ignore_timeout = true
 shell = ["bash", "--noprofile", "--norc"]
+
