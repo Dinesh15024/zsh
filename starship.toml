@@ -2,7 +2,7 @@
 
 add_newline = false
 
-format = "$directory$os$git_branch$git_status${custom.docker}${custom.kubernetes}$character"
+format = "$os$directory$git_branch$git_status${custom.docker}${custom.kubernetes}$character"
 
 [os]
 disabled = false
